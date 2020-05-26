@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <h1 id="titulo-principal">Trivia</h1>
+    <div id="test"></div>
+    <br>
+    <br>
+    <button id="boton">Mostrar resultado</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        const contenedor = document.getElementById("test");
+        const botonRes = document.getElementById("boton")
+        const resultadoTest = document.getElementById("resultado")
+
+        const preguntas = [
+            {
+                pregunta: "1. ¿En que año se lanzó The Last of Us?",
+                respuestas:{
+                    a: "2011",
+                    b: "2013",
+                    c: "2014"
+                },
+                respuestaCorrecta: "b"
+            },
+            {
+                pregunta: "2. ¿Cuál es la empresa desarrolladora de Spiderman PS4?",
+                respuestas: {
+                    a: "Insomniac Games",
+                    b: "Naughty Dog",
+                    c: "CD Projekt Red"
+                },
+                respuestaCorrecta: "a"
+            },
+            {
+                pregunta: "3. ¿Para qué plataforma se lanzó The Last Story?",
+                respuestas: {
+                    a: "PlayStation 3",
+                    b: "PC",
+                    c: "XBOX 360",
+                    d: "Nintendo Wii"
+                },
+                respuestaCorrecta: "d"
+            },
+            {
+                pregunta: "4. ¿Cómo se llama el personaje principal de Red Dead Redemption 2?",
+                respuestas: {
+                    a: "Joel Ramirez",
+                    b: "Arthur Morgan",
+                    c: "Dutch van der Linde"
+                },
+                respuestaCorrecta: "b"
+            },
+            {
+                pregunta: "5. ¿Cuál es la consola de videojuegos más vendida de la historia?",
+                respuestas: {
+                    a: "Nintendo Wii",
+                    b: "GameBoy Advance",
+                    c: "PlayStation 2",
+                    d: "Nintendo 3DS"
+                },
+                respuestaCorrecta: "c"
+            },
+            {
+                pregunta: "6. ¿Quién fue el famoso compositor que trabajó en The Last of Us?",
+                respuestas:{
+                    a: "Nathan Whitehead",
+                    b: "John Paesano",
+                    c: "Gustavo Santaolalla"
+                },
+                respuestaCorrecta: "c"
+            },
+            {
+                pregunta: "7. ¿Qué otro gran exito creó el celebre director de The Last Story Hironobu Sakaguchi?",
+                respuestas:{
+                    a: "Final Fantasy",
+                    b: "Metal Gear Solid",
+                    c: "Resident Evil"
+                },
+                respuestaCorrecta: "a"
+            },
+            {
+                pregunta: "8. ¿Qué videojuego fue galardonado según The Game Awards como el Mejor Videojuego del Año 2018?",
+                respuestas:{
+                    a: "Spiderman",
+                    b: "God of War",
+                    c: "Red Dead Redemption 2"
+                },
+                respuestaCorrecta: "b"
+            },
+            {
+                pregunta: "9. ¿Cuál es la empresa desarrolladora de Red Dead Redemption 2?",
+                respuestas:{
+                    a: "Ubisoft",
+                    b: "Electronic Arts",
+                    c: "Rockstar Games"
+                },
+                respuestaCorrecta: "c"
+            },
+            {
+                pregunta: "10. ¿Cuál de estos videojuegos cuenta con un modo multijugador online?",
+                respuestas:{
+                    a: "Spiderman PS4",
+                    b: "The Last Story",
+                    c: "Red Dead Redemption 2"
+                },
+                respuestaCorrecta: "c"
+            }
+        ];
+        function mostrarTest(){
+            const preguntasYrespuestas = [];
+
+            preguntas.forEach((preguntaActual, numeroDePregunta) => {
+                const respuestas = [];
+                for(letraRespuesta in preguntaActual.respuestas){
+                    respuestas.push(
+                        `<label>
+                            <input type="radio" name="${numeroDePregunta}" value="${letraRespuesta}">
+                            ${letraRespuesta} : ${preguntaActual.respuestas[letraRespuesta]}
+
+                        </label>
+                        `
+                    );
+                }
+                preguntasYrespuestas.push(
+                    `<div class="cuestion"> ${preguntaActual.pregunta} </div>
+                     <div class="respuestas"> ${respuestas.join()} </div>
+                    `
+
+                );    
+            });
+            
+            contenedor.innerHTML = preguntasYrespuestas.join();
+        }
+
+        mostrarTest();
+        function mostrarResultado (){
+            const respuestas = contenedor.querySelectorAll(".respuestas");
+            let respuestasCorrectas = 0;
+
+            preguntas.forEach((preguntaActual, numeroDePregunta) => {
+                const todasLasRespuestas = respuestas[numeroDePregunta];
+                const checkboxRespuestas = `input[name='${numeroDePregunta}']:checked`;
+                const respuestaElegida = (todasLasRespuestas.querySelector(checkboxRespuestas) || {}).value;
+
+                if(respuestaElegida === preguntaActual.respuestaCorrecta){
+                    respuestasCorrectas++;
+
+                    respuestas[numeroDePregunta].style.color = "green";
+                } else{
+                    respuestas [numeroDePregunta].style.color = "red" ;
+                }
+            });
+            alert(" Su puntaje final es " + (respuestasCorrectas/preguntas.length)*100 + "/100. Presione 'Aceptar' para ver sus aciertos y errores.");
+        }
+
+        botonRes.addEventListener("click", mostrarResultado);
+    </script>
+</body>
+</html>

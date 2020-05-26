@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 id="titulo-principal">Formulario</h1>
+        <div id="centrar">
+            <h2 class="titulos">Ingrese sus datos por favor:</h2>
+            <br>
+            <p class="textos">Nombre:</p>
+            <input type="text" id="Nombre" maxlength="20" required>
+            <p class="textos">Apellido:</p>
+            <input type="text" id="Apellido" maxlength="20" required>
+            <br>
+            <p class="textos">Edad:</p>
+            <input type="number" id="Edad" maxlength="3" required>
+            <p class="textos">Videojuego favorito de la infancia:</p>
+            <input type="text" id="Juego" required>
+            <br>
+            <br>
+            <button id="boton" type="submit">Enviar</button>
+            <br>
+            <br>
+            <p id="parrafo"></p>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        var boton = document.getElementById("boton");
+        boton.onclick = function(){
+            
+            var Nombre = document.getElementById("Nombre").value;
+            var Apellido = document.getElementById("Apellido").value;
+            var Edad = document.getElementById("Edad").value;
+            var Juego = document.getElementById("Juego").value;
+            
+
+
+            document.getElementById("parrafo").innerHTML = "Bienvenido a mi página " + Nombre + " " + Apellido + "!" + " Así que tenés " + Edad + " años y tu juego favorito era " + Juego + ". Siempre es un buen momento para volver a jugar los juegos que nos marcaron!"  ;
+        }
+    </script>
+    
+</body>
+</html>

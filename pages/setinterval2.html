@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last of Us 2</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <h1 id="titulo-principal">The Last of Us 2 Preview</h1>
+    <b class="textos" >
+        The Last of Us: Part II es un próximo videojuego de acción-aventura desarrollado por Naughty Dog y publicado por Sony. Su lanzamiento está programado para el 19 de junio de 2020. A continuación, caputuras realizadas in-game:
+    </b>
+    <br>
+    <br>
+    <img src="https://www.psu.com/wp/wp-content/uploads/2019/09/TheLastofUsPart2SeptemberScreenshot-4-1024x576.jpeg" id="imagen" alt="">
+    <script type="text/javascript">
+    var imagenes = [
+        "https://livingplaystation.com/wp-content/uploads/2020/05/The-Last-of-Us-II-Gameplay.jpg",
+        "https://as.com/meristation/imagenes/2020/04/06/noticias/1586165398_505223_1586165709_noticia_normal.jpg",
+        "https://noticiasvideojuegos.com/wp-content/uploads/2019/09/1569516027_1280x720.jpg",
+        "https://sm.ign.com/ign_es/gallery/t/the-last-o/the-last-of-us-part-2-new-screenshots_6j3z.jpg",
+        "https://i1.wp.com/akihabarablues.com/wp-content/uploads/2019/09/Ellie-en-The-Last-of-Us-Parte-II.png?ssl=1",
+        "https://1.bp.blogspot.com/-K90UrwqqXdQ/XY1G_8Fz8RI/AAAAAAAAYro/wy7KFwUGRW41IMTXZPAdCuQinDCcMP3WACLcBGAsYHQ/s1600/1547287312-780927-1547287525-noticia-normal_q24x.jpg",
+        "https://puregaming.es/wp-content/uploads/2020/05/lastusgame5.jpg",
+        "https://img.ibxk.com.br/2018/07/12/12122252162045.jpg",
+        "https://www.psu.com/wp/wp-content/uploads/2019/09/TheLastofUsPart2SeptemberScreenshot-4-1024x576.jpeg",
+    ];
+    var x=0;
+    function slider ()
+    {
+        if(x > imagenes.length-1)
+        {
+            x = 0;
+        }
+        document.getElementById("imagen").src = imagenes [x];
+        x++;
+
+    }
+    temporizador = setInterval("slider()", 3500)
+    </script>
+    
+</body>
+</html>

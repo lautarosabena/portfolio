@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función Propia</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 id="titulo-principal">Calculadora</h1>
+        <br>
+        <h2 class="titulos">Ingrese dos números y elija la operación deseada:</h2>
+        <br>
+        <br>
+        <input id="a" type="text">
+        <input id="b" type="text">
+        <input type="button" onclick="suma(document.getElementById('a').value,document.getElementById('b').value);" value="Sumar"/>
+        <input type="button" onclick="resta(document.getElementById('a').value,document.getElementById('b').value);" value="Restar"/>
+        <input type="button" onclick="multiplicacion(document.getElementById('a').value,document.getElementById('b').value);" value="Multiplicar"/>
+        <input type="button" onclick="division(document.getElementById('a').value,document.getElementById('b').value);" value="Dividir"/>
+    </div>
+    
+    <script type="text/javascript">
+    
+    function suma(a,b)
+    {
+        var r = Number(a)+Number(b);
+        alert("Resultado: " + r);
+    }
+    function resta(a,b)
+    {
+        var r = Number(a)-Number(b);
+        alert("Resultado: " + r);
+    }
+    function multiplicacion (a,b)
+    {
+        var r = Number(a)*Number(b);
+        alert("Resultado: " + r);
+    }
+    function division (x,y)
+    {
+        var r = Number(x)/Number(y);
+        alert("Resultado: " + r);
+    }
+    </script>    
+</body>
+</html>
